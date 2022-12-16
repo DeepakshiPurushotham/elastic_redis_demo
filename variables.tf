@@ -225,6 +225,11 @@ variable "cloudwatch_metric_alarms_enabled" {
   default     = false
 }
 
+# elasticache_parameter_group
+variable "elasticache_parameter_group" {
+  type        = string
+  default     = null
+}
 variable "parameter_group_description" {
   type        = string
   default     = null
