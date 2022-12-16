@@ -9,7 +9,7 @@ variable "subnets" {
   default     = []
 }
 
-variable "elasticache_subnet_groupName" {
+variable "elasticache_subnet_group_name" {
   type        = string
   description = "Subnet group name for the ElastiCache instance"
   default     = ""
@@ -226,7 +226,7 @@ variable "cloudwatch_metric_alarms_enabled" {
 }
 
 # elasticache_parameter_group
-variable "elasticache_parameter_groupName" {
+variable "elasticache_parameter_group" {
   type        = string
   default     = null
 }
