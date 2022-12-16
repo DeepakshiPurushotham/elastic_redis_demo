@@ -81,7 +81,7 @@ locals {
 }
 
 resource "aws_elasticache_subnet_group" "default" {
-  count       = module.this.enabled && var.elasticache_subnet_group_name == "" && length(var.subnets) > 0 ? 1 : 0
+  count       = var.elasticache_subnet_groupName != ""  ? 1 : 0
   name        = var.elasticache_subnet_groupName
   description = "Elasticache subnet group for ${module.this.id}"
   subnet_ids  = var.subnets
