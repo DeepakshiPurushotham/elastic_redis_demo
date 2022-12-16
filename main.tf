@@ -125,7 +125,7 @@ resource "aws_elasticache_replication_group" "default" {
   availability_zones         = length(var.availability_zones) == 0 ? null : [for n in range(0, var.cluster_size) : element(var.availability_zones, n)]
   automatic_failover_enabled = var.cluster_mode_enabled ? true : var.automatic_failover_enabled
   multi_az_enabled           = var.multi_az_enabled
-  subnet_group_name          = aws_elasticache_subnet_group.default.name
+  subnet_group_name          = aws_elasticache_subnet_group.default[count.index].name
   # It would be nice to remove null or duplicate security group IDs, if there are any, using `compact`,
   # but that causes problems, and having duplicates does not seem to cause problems.
   # See https://github.com/hashicorp/terraform/issues/29799
